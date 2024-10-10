@@ -1,4 +1,4 @@
-const url = ' https://icanhazdadjoke.com/asgasgsa'
+const url = ' https://icanhazdadjoke.com/'
 
 // Step-1: Select the elements
 const btn = document.querySelector('.btn')
@@ -26,6 +26,7 @@ const fetchDadJokes = async () => {
 
     const data = await response.json()
 
+    result.innerText = data.joke
     console.log(data)
   } catch (error) {
     console.log(error)

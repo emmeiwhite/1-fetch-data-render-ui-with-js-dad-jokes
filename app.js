@@ -12,10 +12,12 @@ btn.addEventListener('click', () => {
 })
 
 const fetchDadJokes = async () => {
+  // Every time I am loading, I fetch the joke
+  result.textContent = 'Loading ...'
   try {
     const response = await fetch(url, {
       headers: {
-        Accept: 'application/json',
+        Accept: 'applications/json',
         'User-Agent': 'learning app'
       }
     })
@@ -26,9 +28,13 @@ const fetchDadJokes = async () => {
 
     const data = await response.json()
 
-    result.innerText = data.joke
+    result.textContent = data.joke
     console.log(data)
   } catch (error) {
     console.log(error)
+    result.textContent = 'Error loading the data ...'
   }
 }
+
+// To have the jokes right at the start of the application
+fetchDadJokes()
